@@ -1,40 +1,26 @@
-//obliger d'importer le hook
-import { useState } from 'react'
-//path de l'image : './assets/react.svg'
-//alias : reactLogo
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
-//fichier App.css c'est pour le css du component
-//import './App.css'
+import React, { useState } from 'react'
+import Search from './components/search'
 
-//"const App = () => {}" equivalent de declaration "function App () {}"
-//declare un component
-function App() {
-  
-  return (
-    <div className="card-container">
-      <Card title="Star wark"/>
-      <Card title="avatar"/>
-      <Card title="Hulk"/>
-    </div>
-
-  )
-}
-
-function Card({title}) {
-  //hasLiked : nom de la variable, le state, ce que je vais regarder
-  //setHasLiked : la fonction qui va modifier le state, la variable
+const App = () => {
+  //searchTerm : nom de la variable, le state, ce que je vais regarder
+  //setSearchTerm : la fonction qui va modifier le state, la variable
   //bonne pratique : nomVariable, setNomVariable
-  //useState(false) : false est la valeur par default de hasLiked (initialState)
-  const [hasLiked, setHasLiked] = useState(false);
+  //useState('') : '' est la valeur par default de hasLiked (initialState)
+  const [searchTerm, setSearchTerm] = useState('');
 
   return (
-    <div className="card">
-      <h2>{title}</h2>
-      <button onClick={() => setHasLiked(!hasLiked)}>
-        {hasLiked ? 'Liked': 'Like'}
-      </button>
-    </div>
+    <main>
+      <div className='pattern'/>
+      <div className='wrapper'>
+        <header>
+          <img src="./hero.png" alt="HeroBackground"/>
+          <h1>Touvez les <span className='text-gradient'>films</span> rapidement</h1>
+        </header>
+
+        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+        <h1>{searchTerm}</h1>
+      </div>
+    </main>
   )
 }
 

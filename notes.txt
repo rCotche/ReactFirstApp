@@ -1,3 +1,11 @@
+https://www.youtube.com/watch?v=dCLhUialKPQ
+
+https://github.com/adrianhajdin/react-movies/tree/main
+https://www.figma.com/design/kdu6x1bqzyCMbzezudt6s2/Movie-App-w--React?node-id=2-2&p=f
+https://drive.google.com/drive/folders/19f94Pu686Khl4BtHamiwdHy_SSfgAuLY
+
+/////////////////////////
+
 vite config js cesr pour :
 - add plugins
 - configuring server settings
@@ -108,3 +116,94 @@ il faut declare le state dans le component ou il sera utilise
 toujours utiliser les {} pour faire afficher les data dynamic
 
 Les states(variable, ce que je regarde) ne sont par persistent càd si on reload tout redevient comme c'était par default
+
+/////////////////////////
+
+useEffect fetch data, recup
+clean up aussi apres que un component soit remove
+
+les component sont mounted 2 fois a cause du strictmode dans le main.jsx, c'est quand c'est en mode dev, en prod ça fonctionne normalement
+
+Bonne pratique : d'utiliser "prevState" pour update que le "state" lui même, avec le setter
+
+//Appeler uniquement lorsque le component est monté pour la 1ere fois
+useEffect(() => {
+    console.log(`CARD RENDERED`)
+  }, [])
+
+conditionnal rendering
+//if "count" exist alors affiche "count" ou alors null
+{count || null}
+
+{hasLiked ? 'Liked': 'Like'}
+
+/////////////////////////
+rafce
+
+/////////////////////////
+
+//obliger d'importer le hook
+import { useState } from 'react'
+//path de l'image : './assets/react.svg'
+//alias : reactLogo
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
+//fichier App.css c'est pour le css du component
+//import './App.css'
+
+//"const App = () => {}" equivalent de declaration "function App () {}"
+//declare un component
+function App() {
+  
+  return (
+    <div className="card-container">
+      <Card title="Star wark"/>
+      <Card title="avatar"/>
+      <Card title="Hulk"/>
+    </div>
+
+  )
+}
+
+function Card({title}) {
+  //hasLiked : nom de la variable, le state, ce que je vais regarder
+  //setHasLiked : la fonction qui va modifier le state, la variable
+  //bonne pratique : nomVariable, setNomVariable
+  //useState(false) : false est la valeur par default de hasLiked (initialState)
+  const [hasLiked, setHasLiked] = useState(false);
+
+  return (
+    <div className="card">
+      <h2>{title}</h2>
+      <button onClick={() => setHasLiked(!hasLiked)}>
+        {hasLiked ? 'Liked': 'Like'}
+      </button>
+    </div>
+  )
+}
+
+export default App
+
+/////////////////////////
+
+const personne = {
+name:'fsg',
+age:
+location:
+};
+
+const {name, age, location} = personne;
+
+//props : c'est un objet qui contient tous les argument, parametre,... du component
+const Search = (props) => {
+  return (
+    <div className="text-white text-3xl">{props.searchTerm}</div>
+  )
+}
+
+Bonne pratique : ne jamais changer un props depuis un child component
+cad
+searchTerm est un props du component search qui est dans App
+donc dans le search component, le fichier, la fonction… je ne dois pas faire searchTerm = 'isdhjkofehd'
+
+si je veux modifier un state je dois toujours utiliser le setter
