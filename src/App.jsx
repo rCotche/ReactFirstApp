@@ -1,34 +1,40 @@
+//obliger d'importer le hook
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+//path de l'image : './assets/react.svg'
+//alias : reactLogo
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
+//fichier App.css c'est pour le css du component
+//import './App.css'
 
+//"const App = () => {}" equivalent de declaration "function App () {}"
+//declare un component
 function App() {
-  const [count, setCount] = useState(0)
+  
+  return (
+    <div className="card-container">
+      <Card title="Star wark"/>
+      <Card title="avatar"/>
+      <Card title="Hulk"/>
+    </div>
+
+  )
+}
+
+function Card({title}) {
+  //hasLiked : nom de la variable, le state, ce que je vais regarder
+  //setHasLiked : la fonction qui va modifier le state, la variable
+  //bonne pratique : nomVariable, setNomVariable
+  //useState(false) : false est la valeur par default de hasLiked (initialState)
+  const [hasLiked, setHasLiked] = useState(false);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="card">
+      <h2>{title}</h2>
+      <button onClick={() => setHasLiked(!hasLiked)}>
+        {hasLiked ? 'Liked': 'Like'}
+      </button>
+    </div>
   )
 }
 

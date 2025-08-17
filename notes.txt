@@ -3,7 +3,108 @@ vite config js cesr pour :
 - configuring server settings
 …
 
-////////////
+/////////////////////////
 
-c'est à ce niveau que tous le code l'application est infusé
-<div id="root"></div>
+ne pas oublier de mettre dans le gitignore ".env"
+
+static ressource
+public folder :
+image
+icons
+document
+
+"main.jsx" equivalent de "main.dart"
+/////////////////////////
+
+il faut toujours avoir un bloc parent si je souhaite que un component soit dans un autre compenent
+c'est a dire pour utiliser le component card dans mon component App, mon code doit être(encadrer, entourer, a l'interieur de) dans une div
+
+function App() {
+  return (
+    <div>
+      <h2>ça marche !</h2>
+      <Card />
+      <Card />
+      <Card />
+    </div>
+
+  )
+}
+
+function Card() {
+  return (
+    <div>
+      <h2>mi lé un carte </h2>
+    </div>
+  )
+}
+
+/////////////////////////
+
+props pour properties
+props cest pour des data d'un component a un autre component
+
+props c'est comme des parametres qu'on passe à une fonction
+
+function App() {
+  return (
+    <div>
+      <h2>ça marche !</h2>
+      <Card title="Star wark" rating={5} isCool={true} actors={[{name: 'Actors'}]}/>
+      <Card title="avatar"/>
+      <Card title="Hulk"/>
+    </div>
+
+  )
+}
+
+function Card({title}) {
+  return (
+    <div>
+      <h2>{title}</h2>
+    </div>
+  )
+}
+
+/////////////////////////
+
+Pour le style si c'est dans javascript les attribut et les proprietes sont en camel case càd "background-color" devient "backgroundColor"
+
+function App() {
+  return (
+    <div className="card-container">
+      <Card title="Star wark"/>
+      <Card title="avatar"/>
+      <Card title="Hulk"/>
+    </div>
+
+  )
+}
+
+function Card({title}) {
+  return (
+    <div style={{
+      border: '1px solid #4b5362',
+      padding: '20px',
+      margin: '10px',
+      backgroundColor: '#31363f',
+      borderRadius: '10px',
+      minHeight: '100px',
+    }}>
+      <h2>{title}</h2>
+    </div>
+  )
+}
+
+/////////////////////////
+
+tout ce qui commence par "use" c'est généralement un hook dans react
+
+() => {}
+() => setHasLiked(true)
+
+il faut declare le state dans le component ou il sera utilise
+
+toujours utiliser les {} pour faire afficher les data dynamic
+
+Les states(variable, ce que je regarde) ne sont par persistent càd si on reload tout redevient comme c'était par default
