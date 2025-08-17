@@ -1,0 +1,9 @@
+vite config js cesr pour :
+- add plugins
+- configuring server settings
+…
+
+////////////
+
+c'est à ce niveau que tous le code l'application est infusé
+<div id="root"></div>
