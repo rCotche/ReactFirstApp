@@ -207,3 +207,7 @@ searchTerm est un props du component search qui est dans App
 donc dans le search component, le fichier, la fonction… je ne dois pas faire searchTerm = 'isdhjkofehd'
 
 si je veux modifier un state je dois toujours utiliser le setter
+
+/////////////////////////
+
+https://developer.themoviedb.org/reference/intro/getting-started
