@@ -211,3 +211,14 @@ si je veux modifier un state je dois toujours utiliser le setter
 /////////////////////////
 
 https://developer.themoviedb.org/reference/intro/getting-started
+
+/////////////////////////
+
+//pas besoin de return
+map(() => (
+code a exec
+))
+
+map(() => {
+return ()
+})
