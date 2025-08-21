@@ -222,3 +222,17 @@ code a exec
 map(() => {
 return ()
 })
+
+/////////////////////////
+
+quand la variable n'est pas un booleen dans une condition, cela signifie que l'application va check si la variable existe
+
+/////////////////////////
+
+//sera utilise qu'une seul fois au chargement car
+  //on a mis une dependence vide
+  useEffect(() => {
+    fetchMovies();
+  }, [])
+
+/////////////////////////
