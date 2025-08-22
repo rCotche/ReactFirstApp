@@ -236,3 +236,13 @@ quand la variable n'est pas un booleen dans une condition, cela signifie que l'a
   }, [])
 
 /////////////////////////
+
+deployement
+
+npm run build (generate folder dist)
+
+project Dashboard > file manager > public html > delete default.php
+
+drag n drop all file from the dist folder
+
+check ssl certificate
